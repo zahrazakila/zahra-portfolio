@@ -103,8 +103,8 @@ export default function ContactSection() {
               <div className="text-center">
                 <div className="relative mb-6 inline-block">
                   <img
-                    src="/aef-1.jpeg?height=200&width=200"
-                    alt="John Doe Profile"
+                    src="/images/aef/aef-1.jpeg?height=200&width=200"
+                    alt="Zahra Profile"
                     className="w-48 h-48 rounded-full mx-auto object-cover border-4 border-pink-200 dark:border-pink-800"
                   />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-t from-pink-500/20 to-transparent" />
