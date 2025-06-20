@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "export",
   images: {
-    unoptimized: true, // Kalau kamu pakai <Image> dari next/image
+    unoptimized: true, // only needed if you use <Image />
   },
 };
 
