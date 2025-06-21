@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
 import { GraduationCap, Calendar, MapPin, Award } from "lucide-react"
 import AnimatedBackground from "./animated-background"
 
@@ -24,61 +25,59 @@ const educationData = [
 ]
 
 export default function EducationSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1, rootMargin: "-50px" }
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <AnimatedBackground className="min-h-screen py-20 px-4 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+    <AnimatedBackground className="min-h-screen py-20 px-1 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       <div ref={ref} className="max-w-6xl mx-auto relative z-10">
-        {/* Header */}
-        <div 
-          className={`text-center mb-16 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+          <motion.h2
+            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent"
+            animate={
+              isInView
+                ? {
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  }
+                : {}
+            }
+            transition={{
+              duration: 3,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          >
             Education
-          </h2>
+          </motion.h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             My academic journey and the foundation that shaped my technical expertise.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Education Cards */}
         <div className="space-y-8">
           {educationData.map((edu, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`education-card bg-white dark:bg-gray-800 border border-pink-100 dark:border-pink-900/30 rounded-xl p-8 transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-xl hover:shadow-pink-500/10 ${
-                isVisible ? 'opacity-100 translate-x-0' : `opacity-0 ${index % 2 === 0 ? '-translate-x-12' : 'translate-x-12'}`
-              }`}
-              style={{
-                transitionDelay: `${index * 200}ms`
-              }}
+              initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0 }}
+              animate={isInView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.3 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="bg-white dark:bg-gray-800 border border-pink-100 dark:border-pink-900/30 rounded-xl p-8 hover:shadow-xl hover:shadow-pink-500/10 transition-all duration-300"
             >
-              {/* Header Section */}
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                 <div className="flex items-center space-x-4 mb-4 lg:mb-0">
-                  <div className="icon-container w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <motion.div
+                    className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <GraduationCap className="w-8 h-8 text-white" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{edu.degree}</h3>
                     <p className="text-lg text-pink-600 dark:text-pink-400 font-semibold">{edu.school}</p>
@@ -97,58 +96,31 @@ export default function EducationSection() {
                 </div>
               </div>
 
-              {/* Description */}
               <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">{edu.description}</p>
 
-              {/* Achievements */}
               <div className="flex flex-wrap gap-3">
                 {edu.achievements.map((achievement, achIndex) => (
-                  <div
+                  <motion.div
                     key={achIndex}
-                    className={`achievement-badge flex items-center space-x-2 px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-full transition-all duration-500 hover:scale-105 ${
-                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                    }`}
-                    style={{
-                      transitionDelay: `${index * 200 + achIndex * 100 + 300}ms`
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{
+                      delay: index * 0.3 + achIndex * 0.1 + 0.5,
+                      duration: 0.5,
+                      ease: "easeOut",
                     }}
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center space-x-2 px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-full"
                   >
                     <Award className="w-4 h-4" />
                     <span className="text-sm font-medium">{achievement}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .education-card {
-          will-change: transform;
-        }
-        
-        .icon-container:hover {
-          transform: rotate(360deg) scale(1.1);
-          transition: transform 0.3s ease;
-        }
-        
-        .achievement-badge:hover {
-          transform: scale(1.05);
-        }
-        
-        /* Reduce animations on low-end devices */
-        @media (prefers-reduced-motion: reduce) {
-          .education-card,
-          .achievement-badge,
-          .icon-container {
-            transition: none !important;
-          }
-          
-          .icon-container:hover {
-            transform: none;
-          }
-        }
-      `}</style>
     </AnimatedBackground>
   )
 }
