@@ -62,8 +62,7 @@ export default function HeroSection() {
               </div>
 
               <p className="text-lg text-muted-foreground/80 mb-8 max-w-lg mx-auto lg:mx-0">
-                I craft digital experiences with modern technologies, turning ideas into beautiful, functional
-                applications that make a difference.
+                I love building things that make a difference. Whether it's apps, communities, or bold ideas that empower others.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
