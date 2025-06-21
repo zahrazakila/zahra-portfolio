@@ -19,7 +19,7 @@ const experienceData = [
       "Completed collaborative innovation projects with diverse team members",
       "Trained in effective communication, critical thinking, and problem-solving",
       "Adapted to fast-paced learning environments and managed change effectively",
-      "Initiated and led SisterCorner, a women empowerment project that reached 300+ participants through interactive workshops and campaigns"
+      "Initiated SisterCorner, a women empowerment project that reached 300+ participants through interactive workshops and campaigns"
     ],
     images: ["/images/ffl/1.jpg", "/images/ffl/2.jpeg"],
   },
