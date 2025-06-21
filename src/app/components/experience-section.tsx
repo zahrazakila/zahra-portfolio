@@ -40,7 +40,7 @@ const experienceData = [
   },
   {
     position: "Awardee",
-    company: "XL Future Leaders",
+    company: "XL Female Future Leaders",
     location: "Hybrid",
     period: "Nov 2024 - June 2025",
     type: "Leadership",
