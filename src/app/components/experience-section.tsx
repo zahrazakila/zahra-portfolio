@@ -13,7 +13,7 @@ const experienceData = [
     period: "Nov 2024 - June 2025",
     type: "Leadership",
     description:
-      "Selected as one of only 100 awardees from over 67,000 applicants and the only representative from UIN",
+      "Selected as one of only 100 awardees from over 67,000 participants and the only representative from UIN",
     achievements: [
       "Gained practical skills in leadership, entrepreneurship, and design thinking",
       "Completed collaborative innovation projects with diverse team members",
