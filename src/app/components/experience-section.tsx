@@ -7,7 +7,25 @@ import AnimatedBackground from "./animated-background"
 
 const experienceData = [
   {
-    position: "President of Study Club",
+    position: "Awardee",
+    company: "XL Future Leaders",
+    location: "Hybrid",
+    period: "Nov 2024 - June 2025",
+    type: "Leadership",
+    description:
+      "Selected as one of only 100 awardees from over 67,000 applicants and the only representative from UIN. This 6-month hybrid program provided intensive training in leadership, entrepreneurship, innovation, and managing change. Through workshops, real projects, and peer collaboration, I developed essential soft skills to lead impactful initiatives and adapt in dynamic environments.",
+    achievements: [
+      "Gained practical skills in leadership, entrepreneurship, and design thinking",
+      "Completed collaborative innovation projects with diverse team members",
+      "Trained in effective communication, critical thinking, and problem-solving",
+      "Adapted to fast-paced learning environments and managed change effectively",
+      "Initiated and led SisterCorner, a women empowerment project that reached 300+ participants through interactive workshops and campaigns"
+    ],
+    images: ["/images/ffl/1.jpg", "/images/ffl/2.jpeg"],
+  },
+
+  {
+    position: "President",
     company: "Study Club of Informatics",
     location: "Yogyakarta, Indonesia",
     period: "2025 - Present",
