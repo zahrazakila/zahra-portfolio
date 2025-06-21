@@ -7,24 +7,6 @@ import AnimatedBackground from "./animated-background"
 
 const experienceData = [
   {
-    position: "Awardee",
-    company: "XL Future Leaders",
-    location: "Hybrid",
-    period: "Nov 2024 - June 2025",
-    type: "Leadership",
-    description:
-      "Selected as one of only 100 awardees from over 67,000 participants and the only representative from UIN",
-    achievements: [
-      "Gained practical skills in leadership, entrepreneurship, and design thinking",
-      "Completed collaborative innovation projects with diverse team members",
-      "Trained in effective communication, critical thinking, and problem-solving",
-      "Adapted to fast-paced learning environments and managed change effectively",
-      "Initiated SisterCorner, a women empowerment project that reached 300+ participants through interactive workshops and campaigns"
-    ],
-    images: ["/images/ffl/1.jpg", "/images/ffl/2.jpeg"],
-  },
-
-  {
     position: "President",
     company: "Study Club of Informatics",
     location: "Yogyakarta, Indonesia",
@@ -56,6 +38,24 @@ const experienceData = [
     ],
     images: ["/images/hmit/hmit-1.jpeg", "/images/hmit/hmit-2.jpeg"],
   },
+  {
+    position: "Awardee",
+    company: "XL Future Leaders",
+    location: "Hybrid",
+    period: "Nov 2024 - June 2025",
+    type: "Leadership",
+    description:
+      "Selected as one of only 100 awardees from over 67,000 participants and the only representative from UIN",
+    achievements: [
+      "Gained practical skills in leadership, entrepreneurship, and design thinking",
+      "Completed collaborative innovation projects with diverse team members",
+      "Trained in effective communication, critical thinking, and problem-solving",
+      "Adapted to fast-paced learning environments and managed change effectively",
+      "Initiated SisterCorner, a women empowerment project that reached 300+ participants through interactive workshops and campaigns"
+    ],
+    images: ["/images/ffl/1.jpg", "/images/ffl/2.jpeg"],
+  },
+
   {
     position: "Student Delegate",
     company: "ASEAN Student Mobility 2025",
